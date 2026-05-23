@@ -106,36 +106,28 @@ Paste error log → AI analisis → actionable fix + automation commands + healt
 
 ## 🎬 Demo
 
+### Live Demo
+- **Netlify:** https://mimo-depin-node-copilot.netlify.app (after deployment)
+- **GitHub Pages:** https://sahruldolkenkai2.github.io/mimo-depin-node-copilot
+
 ### Screenshots
 
-**Dashboard**
-```
-┌─────────────────────────────────────────┐
-│  MiMo DePIN Node Copilot                │
-│  AI assistant untuk DePIN nodes         │
-├─────────────────────────────────────────┤
-│  [Total: 0] [Healthy: 0] [Errors: 0]   │
-│                                         │
-│  Quick Actions:                         │
-│  [Analyze Log] [Health Check]           │
-│  [Automation] [History] [Add Node]      │
-└─────────────────────────────────────────┘
-```
+| Dashboard | Log Analyzer |
+|-----------|--------------|
+| ![Dashboard](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/dashboard.png) | ![Log Analyzer](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/analyzer.png) |
 
-**Log Analyzer**
-```
-Input: [Paste error log...]
-  ↓
-AI Analysis:
-  Root Cause: Process crashed due to OOM
-  Severity: CRITICAL
-  Fix:
-    1. Increase memory limit
-    2. Restart with monitoring
-  Commands:
-    $ sudo systemctl restart node-service
-    $ journalctl -u node-service -f
-```
+| Health Checker | Automation Generator |
+|----------------|----------------------|
+| ![Health Checker](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/health.png) | ![Automation Generator](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/automation.png) |
+
+| History | Node Registry |
+|---------|---------------|
+| ![History](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/history.png) | ![Node Registry](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/nodes.png) |
+
+### Demo Video
+[![Watch Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtube.com/watch?v=VIDEO_ID)
+
+*Note: Replace VIDEO_ID with actual demo video ID after recording*
 
 ---
 
