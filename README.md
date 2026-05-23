@@ -679,14 +679,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 📞 Support
-
-- **Documentation:** Check `/docs` folder
-- **Issues:** [GitHub Issues](https://github.com/yourusername/mimo-depin-node-copilot/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/mimo-depin-node-copilot/discussions)
-
----
-
 ## 📊 Project Stats
 
 - **Pages:** 6 (all functional)
