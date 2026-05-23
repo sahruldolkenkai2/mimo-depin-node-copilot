@@ -693,7 +693,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-**Built with ❤️ for DePIN node operators**
+**Built with ❤️ for DePIN node operators**  
+**by sahruldolkenkai2**
 
 [⬆ Back to Top](#-mimo-depin-node-copilot)
 
