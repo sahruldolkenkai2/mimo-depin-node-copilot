@@ -107,8 +107,8 @@ Paste error log → AI analisis → actionable fix + automation commands + healt
 ## 🎬 Demo
 
 ### Live Demo
-- **Netlify:** https://mimo-depin-node-copilot.netlify.app (after deployment)
-- **GitHub Pages:** https://sahruldolkenkai2.github.io/mimo-depin-node-copilot
+- **🌐 Netlify:** https://mimo-depin-node-copilot.netlify.app ✅ **LIVE**
+- **📱 GitHub Pages:** https://sahruldolkenkai2.github.io/mimo-depin-node-copilot
 
 ### Screenshots
 
