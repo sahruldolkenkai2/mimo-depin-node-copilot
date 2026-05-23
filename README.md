@@ -115,14 +115,17 @@ Paste error log → AI analisis → actionable fix + automation commands + healt
 | Dashboard | Log Analyzer |
 |-----------|--------------|
 | ![Dashboard](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/dashboard.png) | ![Log Analyzer](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/analyzer.png) |
+| *Quick stats + action cards* | *AI diagnosis + fix commands* |
 
 | Health Checker | Automation Generator |
 |----------------|----------------------|
 | ![Health Checker](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/health.png) | ![Automation Generator](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/automation.png) |
+| *Health checklist + score* | *systemd/pm2/docker config* |
 
 | History | Node Registry |
 |---------|---------------|
 | ![History](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/history.png) | ![Node Registry](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/nodes.png) |
+| *Search + filter + export* | *Add/edit/delete nodes* |
 
 ### Demo Video
 [![Watch Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtube.com/watch?v=VIDEO_ID)
