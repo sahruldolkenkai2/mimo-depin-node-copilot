@@ -13,9 +13,113 @@ export interface GroqAnalysisResponse {
 export async function analyzeLogWithGroq(
   request: GroqAnalysisRequest
 ): Promise<GroqAnalysisResponse> {
-  // Mock response for now - will integrate with actual Groq API
-  // In production, replace with actual API call
+  // Real Groq API integration
+  const apiKey = process.env.GROQ_API_KEY
   
+  if (!apiKey) {
+    console.warn('GROQ_API_KEY not set, using mock response')
+    return getMockResponse()
+  }
+
+  try {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a DePIN (Decentralized Physical Infrastructure Network) node expert. 
+            Analyze error logs from node operators and provide:
+            1. Root cause (1-2 sentences)
+            2. Severity level (critical/high/medium/low)
+            3. Recommended fix steps (3-5 bullet points)
+            4. Shell commands to execute (copy-paste ready)
+            
+            Node type: ${request.nodeType || 'general'}
+            Be concise and actionable.`,
+          },
+          {
+            role: 'user',
+            content: `Analyze this node error log:\n\n${request.log}`,
+          },
+        ],
+        temperature: 0.7,
+        max_tokens: 1000,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Groq API error: ${response.status}`)
+    }
+
+    const data = await response.json()
+    const aiResponse = data.choices[0]?.message?.content || ''
+    
+    return parseGroqResponse(aiResponse)
+  } catch (error) {
+    console.error('Groq API failed:', error)
+    return getMockResponse() // Fallback to mock
+  }
+}
+
+function parseGroqResponse(text: string): GroqAnalysisResponse {
+  // Parse AI response into structured format
+  // This is a simplified parser - you might want to improve it
+  
+  const lines = text.split('\n')
+  let rootCause = ''
+  let severity: 'critical' | 'high' | 'medium' | 'low' = 'medium'
+  const recommendedFix: string[] = []
+  const commands: string[] = []
+
+  for (const line of lines) {
+    const lowerLine = line.toLowerCase()
+    
+    if (lowerLine.includes('root cause') || lowerLine.includes('cause:')) {
+      rootCause = line.replace(/root cause:|cause:/i, '').trim()
+    }
+    
+    if (lowerLine.includes('severity:')) {
+      if (lowerLine.includes('critical')) severity = 'critical'
+      else if (lowerLine.includes('high')) severity = 'high'
+      else if (lowerLine.includes('medium')) severity = 'medium'
+      else if (lowerLine.includes('low')) severity = 'low'
+    }
+    
+    if (line.includes('•') || line.includes('-') || line.match(/^\d+\./)) {
+      const cleanLine = line.replace(/^[•\-\d\.\s]+/, '').trim()
+      if (cleanLine && !cleanLine.includes('severity') && !cleanLine.includes('root cause')) {
+        recommendedFix.push(cleanLine)
+      }
+    }
+    
+    if (line.includes('$ ') || line.includes('sudo ') || line.includes('systemctl')) {
+      const command = line.replace(/^\$ /, '').trim()
+      if (command && command.length > 5) {
+        commands.push(command)
+      }
+    }
+  }
+
+  // Fallback if parsing fails
+  if (!rootCause || recommendedFix.length === 0) {
+    return getMockResponse()
+  }
+
+  return {
+    rootCause,
+    severity,
+    recommendedFix: recommendedFix.slice(0, 5),
+    commands: commands.slice(0, 3),
+  }
+}
+
+function getMockResponse(): GroqAnalysisResponse {
   const mockResponses = [
     {
       rootCause: 'Process crashed due to out of memory',
@@ -60,10 +164,6 @@ export async function analyzeLogWithGroq(
     },
   ]
 
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000))
-
-  // Return random mock response for now
   const randomIndex = Math.floor(Math.random() * mockResponses.length)
   return mockResponses[randomIndex]
 }
