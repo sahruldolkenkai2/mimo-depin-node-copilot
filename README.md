@@ -128,9 +128,16 @@ Paste error log → AI analisis → actionable fix + automation commands + healt
 | *Search + filter + export* | *Add/edit/delete nodes* |
 
 ### Demo Video
-[![Watch Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtube.com/watch?v=VIDEO_ID)
 
-*Note: Replace VIDEO_ID with actual demo video ID after recording*
+![Demo GIF](https://raw.githubusercontent.com/sahruldolkenkai2/mimo-depin-node-copilot/main/screenshots/demo.gif)
+
+*6-second animated demo showing all features in action*
+
+**To record your own demo video:**
+1. Run `npm run dev`
+2. Screen record the app (30-60 seconds)
+3. Upload to YouTube/Vimeo
+4. Update README with video link
 
 ---
 
